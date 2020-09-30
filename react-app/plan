@@ -1,4 +1,11 @@
-- Vanilla CSS и SASS
-- CSS-модули
-- Styled Components
-- Библиотеки компонентов (на выбор преподавателя)
+- Компоненты-классы
+- События: SyntheticEvent Object. Inline callbacks, custom methods, public class fields
+- Внутреннее состояние компонента. Начальное состояние от props
+- Изменение состояния с setState(update, callback)
+- Асинхронность обновления состояния
+- Изменение состояния от предыдущего - setState(updaterFn, callback)
+- Подъем состояния (state hoisting, lifting state up)
+- Вычисляемые данные (derived data)
+- Коллекция заметок: 
+    - рендер списка
+    - удаление заметки

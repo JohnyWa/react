@@ -1,11 +1,5 @@
-- Компоненты-классы
-- События: SyntheticEvent Object. Inline callbacks, custom methods, public class fields
-- Внутреннее состояние компонента. Начальное состояние от props
-- Изменение состояния с setState(update, callback)
-- Асинхронность обновления состояния
-- Изменение состояния от предыдущего - setState(updaterFn, callback)
-- Подъем состояния (state hoisting, lifting state up)
-- Вычисляемые данные (derived data)
+- Паттерн controlled element
+- Формы и работа с input, checkbox, radio, select
+- Создаем форму регистрации
 - Коллекция заметок: 
-    - рендер списка
-    - удаление заметки
+    - фильтрация по  (текст)содержимому

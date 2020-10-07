@@ -1,14 +1,40 @@
 import React, {Component} from "react";
 import TodoList from "./todoList";
 import TodoForm from "./todoForm";
-import Filters from "../components_four_lesson/filter";
+import Filters from "./filter";
 
 export default class Main extends Component{
-  state = {
-    todos: [],
-    inputValue: '',
-    filter: ''
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todos: [],
+      inputValue: '',
+      filter: ''
+    };
+
+    console.log('CONSTRUCTOR');
+  }
+
+  componentDidMount() {
+    const todos = localStorage.getItem('todos');
+
+    if(todos) {
+      this.setState({todos: JSON.parse(todos)})
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    // console.group('COMPONENT_DID_UPDATE');
+    // console.log('prevState____: ', prevState);
+    // console.log('this.state____: ', this.state);
+    // console.groupEnd();
+
+    const { todos } = this.state;
+    if(prevState.todos !== todos) {
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }
+  }
 
   addTodo = event => {
     event.preventDefault();
@@ -55,6 +81,7 @@ export default class Main extends Component{
   render() {
     const {inputValue, filter} = this.state;
     const todos = this.filteredTodos();
+    console.log('RENDER');
 
     return(
       <>

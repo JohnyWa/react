@@ -1,42 +1,73 @@
 import React from 'react';
-import Tabs from "./components/Tabs";
-// import Modal from "./components/Modal";
-// import Timer from "./components/Timer";
-// import Main from "./components/mainTodoList";
 
-const TABS_DATA = [
-  {id: 1, title: "1-tab",  desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "},
-  {id: 2, title: "2-tab", desc: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC"},
-  {id: 3, title: "3-tab", desc: "What is Lorem Ipsum"}
-];
+import './styles.css';
+
+import NewsList from "./components/NewsList";
+import Error from "./components/Error";
+import {getFromApi} from "./api/newsApi";
+import Loader from "./components/Loader";
+import SearchForm from "./components/SearchForm";
 
 export default class App extends React.Component{
   state = {
-    isOpen: false
+    allNews: [],
+    currentPage: 1,
+    loading: false,
+    error: null,
+    searchData: ''
   };
 
-  // modalHandler = () => {
-  //   this.setState(prev => ({ isOpen: !this.state.isOpen}))
-  // };
+  searchDataHandler = searchData => this.setState({searchData, currentPage: 1, allNews: []});
+
+  // componentDidMount() {
+  //   this.setState({loading: true});
   //
-  // closeHandler = () => this.setState({isOpen: false});
+  //     getFromApi('news')
+  //     .then(response =>
+  //       this.setState({allNews: response.articles})
+  //     ).catch(error => {
+  //     this.setState({error})
+  //     }).finally(() => {
+  //         this.setState({loading: false})
+  //     });
+  // }
+
+  loadHandler = () => {
+    const { searchData, currentPage } = this.state;
+
+    return getFromApi(searchData, currentPage)
+      .then(response => {
+
+          return this.setState(prev =>
+            ({allNews: [...prev.allNews, ...response.articles], currentPage: prev.currentPage + 1}))
+        }
+      ).catch(error => {
+        this.setState({error})
+      }).finally(() => {
+        this.setState({loading: false})
+      });
+  };
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { searchData, currentPage } = this.state;
+
+    if(prevState.searchData !== searchData) {
+      this.loadHandler()
+    }
+  }
 
   render() {
-    // const { isOpen } = this.state;
+    const { allNews, loading, error } = this.state;
 
     return (
       <div className="App">
-        {/*<Main />*/}
-        {/*<button onClick={this.modalHandler}>*/}
-        {/*  {isOpen ? 'Hide': 'Show' } Timer*/}
-        {/*</button>*/}
-        {/*{isOpen &&*/}
-        {/*  <Modal closeHandler={this.closeHandler}>*/}
-        {/*    <h1>Modal window</h1>*/}
-        {/*  </Modal>*/}
-        {/*}*/}
-        {/*{isOpen && <Timer />}*/}
-        <Tabs tabsData={TABS_DATA} />
+        {error && <Error error={error}/>}
+        <SearchForm onSearch={this.searchDataHandler}/>
+        {loading && <Loader />}
+        {allNews.length > 0 && <NewsList news={allNews} />}
+        {allNews.length > 0 &&
+          <button onClick={this.loadHandler}>Load more!</button>
+        }
       </div>
     );
   }

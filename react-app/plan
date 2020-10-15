@@ -1,5 +1,10 @@
-- Методы жизненного цикла и HTTP-запросы
-- Состояние и компонент для индикатора загрузки
-- Состояние и компонент для обработки ошибки
-- Утечка памяти при размонтировании компонента с активным HTTP-запросом
-- Отмена HTTP-запросов
+- Структура url-строки и HTML5 History API. Библиотека history
+- Типы истории: hashHistory, browserHistory, memoryHistory
+- Компоненты BrowserRouter, Route, Switch
+- Обработка 404 c Redirect
+- Компоненты Link и NavLink
+- Route в деталях, пропcы render и component
+- Пропсы match, location, history
+- Вложенные рауты и навигация: match.url и match.path
+- Динамические URL-параметры
+- Query string и location.search

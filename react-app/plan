@@ -1,10 +1,5 @@
-- Структура url-строки и HTML5 History API. Библиотека history
-- Типы истории: hashHistory, browserHistory, memoryHistory
-- Компоненты BrowserRouter, Route, Switch
-- Обработка 404 c Redirect
-- Компоненты Link и NavLink
-- Route в деталях, пропcы render и component
-- Пропсы match, location, history
-- Вложенные рауты и навигация: match.url и match.path
-- Динамические URL-параметры
-- Query string и location.search
+- Статический и динамический импорт модулей
+- Webpack chunks
+- Плюсы и минусы разделения кода
+- Разделение на уровне маршрутов и компонентов
+- React.lazy() и Suspense

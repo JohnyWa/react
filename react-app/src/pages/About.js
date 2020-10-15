@@ -1,9 +1,11 @@
 import React, {Component} from "react";
 
-export default class About extends Component{
+class About extends Component{
   render() {
     return(
-      <h1>About page! {this.props.extraPropName}</h1>
+      <h1>About page!</h1>
     )
   }
 }
+
+export default About

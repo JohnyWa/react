@@ -3,7 +3,7 @@ export const allPosts = () => {
     .then(response => response.json())
 };
 
-export const getPostById = (id, search) => {
+export const getPostById = id => {
   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
     .then(response => response.json())
 };

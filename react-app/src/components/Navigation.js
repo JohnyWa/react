@@ -4,7 +4,7 @@ import '../styles.css';
 
 const Navigation = () => {
   return(
-    <ul>
+    <ul className="nav-box">
       <li>
         <NavLink
           to="/"
@@ -31,6 +31,15 @@ const Navigation = () => {
           activeClassName="menu-item--active"
         >
           Posts
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contacts"
+          className="menu-item"
+          activeClassName="menu-item--active"
+        >
+          Contacts
         </NavLink>
       </li>
     </ul>

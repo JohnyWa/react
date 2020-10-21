@@ -1,32 +1,20 @@
 import React, {Component} from "react";
-import {allPosts} from "../api/api";
-import {Link} from "react-router-dom";
+import withFetch from "../Hoc/withFetch";
 
-export default class Posts extends Component{
-  state = {
-    posts: []
-  };
-
-  componentDidMount() {
-    allPosts().then(posts => this.setState({posts}))
-  }
-
+class Posts extends Component{
   render() {
-    const { posts } = this.state;
-    const { match } =this.props;
-
-    return(
+    const { data } = this.props;
+    return (
       <>
+        <h1>Posts page!</h1>
         <ul>
-          {posts.map(post => (
-            <li key={post.id}>
-              <Link to={`${match.url}/${post.id}`}>
-                {post.title}
-              </Link>
-            </li>
+          {data.map(post => (
+            <li key={post.id}>{post.title}</li>
           ))}
         </ul>
       </>
     )
   }
 }
+
+export default withFetch('https://jsonplaceholder.typicode.com/posts?_limit=5')(Posts);

@@ -1,5 +1,3 @@
-- Статический и динамический импорт модулей
-- Webpack chunks
-- Плюсы и минусы разделения кода
-- Разделение на уровне маршрутов и компонентов
-- React.lazy() и Suspense
+- Higher-Order Components
+- Render Props
+- React Context API"

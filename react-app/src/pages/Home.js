@@ -1,17 +1,12 @@
-import React, {Component, Suspense, lazy} from "react";
-
-const AsyncSomeComponent = lazy(() => import("../components/SomeComponent" /*webpackChunkName: "some-component" */));
+import React, {Component} from "react";
+import Greeting from "../components/Greeting";
 
 export default class Home extends Component{
   render() {
     return(
       <>
         <h1>Home page!</h1>
-        <br />
-        <Suspense fallback={<h1>Loading.....</h1>}>
-          <AsyncSomeComponent />
-        </Suspense>
-        <br />
+        <Greeting />
       </>
     )
   }

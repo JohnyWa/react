@@ -23,12 +23,14 @@
    font-size: 20px;
 }
 
-ul {
+.nav-box {
+   display: flex;
    list-style: none;
 }
 
 .menu-item {
    color: black;
+   padding: 0 10px;
    text-decoration: none;
 }
 

@@ -38,3 +38,45 @@
    color: green;
    text-decoration: underline;
 }
+.gallery {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.gallery-box {
+   position: relative;
+   width: 400px;
+   height: 400px;
+   margin-top: 15px;
+   overflow: hidden;
+}
+
+.gallery-box__item {
+   width: 100%;
+   position: absolute;
+}
+
+.todo-list {
+   list-style: none;
+}
+
+.todo-item {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 5px 10px;
+   border: 1px solid gray;
+   margin-bottom: 10px;
+}
+
+.todo-item__close {
+   display: flex;
+   cursor: pointer;
+   justify-content: center;
+   align-items: center;
+   border-radius: 3px;
+   padding: 3px 5px;
+   color: red;
+   border: 1px solid red;
+}

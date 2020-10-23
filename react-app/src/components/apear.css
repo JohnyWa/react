@@ -1,0 +1,34 @@
+.img-box {
+    width: 300px
+}
+
+.img {
+    width: 100%;
+}
+
+.show-appear {
+   transform: translateX(-100%);
+}
+
+.show-appear-active {
+    transform: translateX(0);
+    transition: transform 250ms linear;
+}
+
+.img-fade-enter{
+    opacity: 0;
+}
+
+.img-fade-enter-active{
+    opacity: 1;
+    transition: opacity 250ms linear;
+}
+
+.text-fade-enter{
+    transform: translateY(100%);
+}
+
+.text-fade-enter-active{
+    transform: translateY(0);
+    transition: transform 250ms linear;
+}

@@ -1,12 +1,12 @@
 import React, {Component} from "react";
-import Greeting from "../components/Greeting";
+import MainTodoComponent from "../components/MainTodoComponent";
 
 export default class Home extends Component{
   render() {
     return(
       <>
         <h1>Home page!</h1>
-        <Greeting />
+        <MainTodoComponent />
       </>
     )
   }

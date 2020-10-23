@@ -1,3 +1,5 @@
-- Higher-Order Components
-- Render Props
-- React Context API"
+- Библиотека React Transition Group
+- Компонент CSSTransition. Пропcы in, timeout, classNames, appear
+- CSSTransition как Render prop. Чейнинг анимаций.
+- Компонент TransitionGroup
+- Компонент SwitchTransition

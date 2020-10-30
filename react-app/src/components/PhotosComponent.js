@@ -1,15 +1,18 @@
-import React, {Component} from "react";
+import React from "react";
+import withFetch from "../hoc/withFetch";
+import withLoader from "../hoc/withLoader";
 import Loading from "../renderProp/Loading";
 
-class Posts extends Component{
+//https://jsonplaceholder.typicode.com/photos?_limit=5
+
+class PhotosComponent extends React.Component{
   render() {
     return (
-      <>
-        <h1>Posts page!</h1>
+      <div>
         <Loading url="https://jsonplaceholder.typicode.com/photos?_limit=5">
           {({ data, loading, error}) => (
             <>
-              {loading ? (<h2>LOADing POSTS........</h2>) : (<div>
+            {loading ? (<h2>LOAD........</h2>) : (<div>
                 {data.map(item => (
                   <img key={item.thumbnailUrl} src={item.thumbnailUrl}/>
                 ))}
@@ -17,9 +20,9 @@ class Posts extends Component{
             </>
           )}
         </Loading>
-      </>
-    )
+      </div>
+    );
   }
 }
 
-export default Posts;
+export default PhotosComponent;

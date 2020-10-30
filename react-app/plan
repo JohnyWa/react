@@ -1,5 +1,2 @@
-- Библиотека React Transition Group
-- Компонент CSSTransition. Пропcы in, timeout, classNames, appear
-- CSSTransition как Render prop. Чейнинг анимаций.
-- Компонент TransitionGroup
-- Компонент SwitchTransition
+- Як працює window.scrollTo()
+- на четверг хтілось ще пару цікавих прикладів хоків та рендер пропів

@@ -1,13 +1,21 @@
 import React, {Component} from "react";
-import MainTodoComponent from "../components/MainTodoComponent";
+import TextContainer from "../components/TextComponent";
+import BackToTop from "../components/BackToTop";
+import ScrollToElementById from "../components/ScrollToElement";
+import withScrollTo from "../hoc/scrollTo";
 
-export default class Home extends Component{
+class Home extends Component{
   render() {
     return(
       <>
         <h1>Home page!</h1>
-        <MainTodoComponent />
+        <ScrollToElementById id="someId"/>
+        <TextContainer blocksCount={5}/>
+        <div id="someId">Scroll here</div>
+        <BackToTop />
       </>
     )
   }
 }
+
+export default withScrollTo()(Home);

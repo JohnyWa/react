@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import Gallery from "../components/Gallery";
-import GallerySwitchTransition from "../components/GallerySwitchTransition";
+import PhotosComponent from "../components/PhotosComponent";
 
 class About extends Component{
   render() {
@@ -8,8 +7,7 @@ class About extends Component{
     return(
       <>
         <h1>About page!</h1>
-        <Gallery />
-        <GallerySwitchTransition />
+        <PhotosComponent />
       </>
     )
   }

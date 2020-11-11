@@ -1,5 +1,5 @@
-- Библиотека React Transition Group
-- Компонент CSSTransition. Пропcы in, timeout, classNames, appear
-- CSSTransition как Render prop. Чейнинг анимаций.
-- Компонент TransitionGroup
-- Компонент SwitchTransition
+"- Основные концепции: store, state, actions, action creators, reducers
+- Redux DevTools
+- Feature based структура файлов и папок
+- Пакет react-redux. Provider и connect(mapStateToProps, mapDispatchToProps)
+- Композиция редюсеров с combineReducers

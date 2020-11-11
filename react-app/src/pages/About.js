@@ -4,7 +4,6 @@ import GallerySwitchTransition from "../components/GallerySwitchTransition";
 
 class About extends Component{
   render() {
-
     return(
       <>
         <h1>About page!</h1>

@@ -2,8 +2,7 @@ import React from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import {connect} from "react-redux";
-import {addMyTodo, removeTodo} from "../actions/todoActions";
-import {addCount} from "../actions/countActions";
+import {addMyTodo, addTodoWithCustomPayload} from "../redux/actions/todoActions";
 
 class MainTodoComponent extends React.Component{
   addTodo = data => {
@@ -12,22 +11,20 @@ class MainTodoComponent extends React.Component{
     }
 
     this.props.addMyTodo({title: data, id: Date.now()});
+    this.props.addTodoWithCustomPayload(data)
   };
 
   removeTodo = id => {
-    // this.setState({todos: this.state.todos.filter(todo => todo.id !== id)})
     this.props.removeTodo(id)
   };
 
   render() {
-    const { dateTodos, count, addCount } = this.props;
+    const { dateTodos } = this.props;
 
     return (
       <>
         <TodoForm addTodo={this.addTodo}/>
         <TodoList removeTodo={this.removeTodo} todos={dateTodos}/>
-        <p>Current count: {count}</p>
-        <button onClick={addCount}>Add count</button>
       </>
     )
   }
@@ -35,13 +32,12 @@ class MainTodoComponent extends React.Component{
 
 const mapStateToProps = (state) => ({
   dateTodos: state.todos.myTodos,
-  count: state.count.currentCount
 })
 
-const mapDispatchToProps = {
+const mapStateToDispatch = {
   addMyTodo,
-  removeTodo,
-  addCount
+  addTodoWithCustomPayload
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainTodoComponent);
+
+export default connect(mapStateToProps,mapStateToDispatch)(MainTodoComponent);

@@ -1,6 +1,8 @@
 import React from "react";
+import {connect} from "react-redux";
+import {removeTodo} from "../redux/actions/todoActions";
 
-export default class TodoItem extends React.Component{
+class TodoItem extends React.Component{
   removeHandler = () => {
     const { todo, removeTodo } = this.props;
 
@@ -18,3 +20,9 @@ export default class TodoItem extends React.Component{
     )
   }
 }
+
+const mapStateToDispatch = {
+  removeTodo
+}
+
+export default connect(null, mapStateToDispatch)(TodoItem);

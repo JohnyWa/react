@@ -1,14 +1,15 @@
 import React from 'react';
-import { createStore } from 'redux';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import rootReducer from './Reducers/rootReducer';
+import rootReducer from './redux/reducers/rootReducer';
+import { configureStore } from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
 
-const store = createStore(rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+const store = configureStore(
+{
+    reducer: rootReducer,
+})
 
 ReactDOM.render(
     <Provider store={store}>

@@ -16,7 +16,7 @@ export default class extends React.Component {
             timeout={500}
             classNames="todo-item"
           >
-            <TodoItem todo={todo} removeTodo={removeTodo}/>
+            <TodoItem todo={todo} id={todo.id}/>
           </CSSTransition>
         ))}
       </TransitionGroup>

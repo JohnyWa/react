@@ -6,7 +6,7 @@ import './todoList.css';
 
 export default class extends React.Component {
   render() {
-    const { todos, removeTodo } = this.props;
+    const { todos } = this.props;
 
     return (
       <TransitionGroup component="ul" className="todo-list">

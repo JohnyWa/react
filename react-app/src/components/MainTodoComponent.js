@@ -2,29 +2,31 @@ import React from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import {connect} from "react-redux";
-import {addMyTodo, addTodoWithCustomPayload} from "../redux/actions/todoActions";
+import {addAsyncTodo, getAllTodos, removeTodoByID} from "../redux/asyncActions/todoAsyncActions";
 
 class MainTodoComponent extends React.Component{
+  componentDidMount() {
+    this.props.getAllTodos()
+  }
+
   addTodo = data => {
     if(!data) {
       return null;
     }
 
-    this.props.addMyTodo({title: data, id: Date.now()});
-    this.props.addTodoWithCustomPayload(data)
+    this.props.addAsyncTodo(data)
   };
 
-  removeTodo = id => {
-    this.props.removeTodo(id)
-  };
 
   render() {
-    const { dateTodos } = this.props;
+    const { dateTodos, hasWrongWords, loading } = this.props;
 
     return (
       <>
+        {hasWrongWords && <h2>This word is bad!!</h2>}
+        {loading && <h2>Loading....</h2>}
         <TodoForm addTodo={this.addTodo}/>
-        <TodoList removeTodo={this.removeTodo} todos={dateTodos}/>
+        <TodoList todos={dateTodos}/>
       </>
     )
   }
@@ -32,11 +34,13 @@ class MainTodoComponent extends React.Component{
 
 const mapStateToProps = (state) => ({
   dateTodos: state.todos.myTodos,
+  hasWrongWords: state.todos.hasWrongWords,
+  loading: state.todos.loading
 })
 
 const mapStateToDispatch = {
-  addMyTodo,
-  addTodoWithCustomPayload
+  addAsyncTodo,
+  getAllTodos,
 }
 
 

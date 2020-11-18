@@ -1,12 +1,12 @@
 import React from "react";
 import {connect} from "react-redux";
 import {removeTodo} from "../redux/actions/todoActions";
+import {removeTodoByID} from "../redux/asyncActions/todoAsyncActions";
 
 class TodoItem extends React.Component{
   removeHandler = () => {
-    const { todo, removeTodo } = this.props;
-
-    removeTodo(todo.id);
+    const { todo } = this.props;
+    this.props.removeTodoByID(todo.id)
   };
 
   render() {
@@ -22,7 +22,8 @@ class TodoItem extends React.Component{
 }
 
 const mapStateToDispatch = {
-  removeTodo
+  removeTodo,
+  removeTodoByID
 }
 
 export default connect(null, mapStateToDispatch)(TodoItem);

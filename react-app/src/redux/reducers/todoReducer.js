@@ -1,45 +1,42 @@
 import { createReducer } from '@reduxjs/toolkit';
-import {addMyTodo, addTodoWithCustomPayload, removeTodo} from "../actions/todoActions";
+import {
+    addAsyncTodoSuccess,
+    deleteAsyncTodoSuccess, getAllAsyncTodosFinish,
+    getAllAsyncTodosStart,
+    getAllAsyncTodosSuccess,
+    removeTodo
+} from "../actions/todoActions";
+import {hasWrongWordsError} from "../actions/wrongWordsAction";
 
 const initialProps = {
     myTodos: [],
-    testData: []
+    hasWrongWords: false,
+    loading: false
 }
 
 export const todoReducer = createReducer(initialProps, {
-    [addMyTodo.type]: (state, action) => ({
+    [addAsyncTodoSuccess.type]: (state, action) => ({
         ...state,
         myTodos: [...state.myTodos, action.payload]
     }),
-    [removeTodo.type]: (state, action) => ({
+    [deleteAsyncTodoSuccess.type]: (state, action) => ({
         ...state,
         myTodos: state.myTodos.filter(todo => todo.id !== action.payload)
     }),
-    [addTodoWithCustomPayload.type]: (state, action) => ({
+    [hasWrongWordsError.type]: (state, action) => ({
         ...state,
-        testData: [...state.testData, action.payload]
+        hasWrongWords: action.payload
+    }),
+    [getAllAsyncTodosSuccess.type]: (state, action) => ({
+        ...state,
+        myTodos: action.payload
+    }),
+    [getAllAsyncTodosStart.type]: (state, action) => ({
+        ...state,
+        loading: true
+    }),
+    [getAllAsyncTodosFinish.type]: (state, action) => ({
+        ...state,
+        loading: false
     })
 })
-
-// export const todoReducer = (state = initialProps, action) => {
-//     switch (action.type) {
-//         case ADD_TODO:
-//             return {
-//                 ...state,
-//                 myTodos: [...state.myTodos, action.payload]
-//             }
-//         case REMOVE_TODO:
-//             const filteredTodos = state.myTodos.filter(todo => todo.id !== action.payload)
-//             return {
-//                 ...state,
-//                 myTodos: filteredTodos
-//             }
-//         case TEST_ADD_TODO_WITH_CUSTOM_PAYLOAD:
-//             return {
-//                 ...state,
-//                 testData: [...state.testData, action.payload]
-//             }
-//         default:
-//             return state
-//     }
-// }

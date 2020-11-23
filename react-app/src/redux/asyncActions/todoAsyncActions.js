@@ -7,13 +7,21 @@ import {
     getAllAsyncTodosStart,
     getAllAsyncTodosSuccess
 } from "../actions/todoActions";
+import {isNotValidText} from "../../helpers/helpers";
+import {hasWrongWordsError} from "../actions/wrongWordsAction";
 
 export const addAsyncTodo = title => dispatch => {
     dispatch(addAsyncTodoStart())
 
-    axios.post(' http://localhost:9000/todos', { title })
-        .then(response => dispatch(addAsyncTodoSuccess(response.data)))
-        .catch(error => dispatch(addAsyncTodoFailure(error)))
+    const isNotValid = isNotValidText(title)
+
+    if(!isNotValid) {
+        axios.post(' http://localhost:9000/todos', { title })
+            .then(response => dispatch(addAsyncTodoSuccess(response.data)))
+            .catch(error => dispatch(addAsyncTodoFailure(error)))
+    }else {
+        dispatch(hasWrongWordsError(true))
+    }
 }
 
 export const getAllTodos = () => dispatch => {

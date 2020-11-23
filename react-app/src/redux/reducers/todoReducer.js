@@ -4,7 +4,6 @@ import {
     deleteAsyncTodoSuccess, getAllAsyncTodosFinish,
     getAllAsyncTodosStart,
     getAllAsyncTodosSuccess,
-    removeTodo
 } from "../actions/todoActions";
 import {hasWrongWordsError} from "../actions/wrongWordsAction";
 

@@ -9,13 +9,13 @@ import {hasWrongWordsError} from "./redux/actions/wrongWordsAction";
 import {ADD_ASYNC_TODO_SUCCESS} from "./redux/types/todoTypes";
 import thunk from 'redux-thunk';
 
-const loggerMiddleware = store => next => action => {
-    console.group(action.type);
-    console.info('dispatching', action);
-    console.groupEnd();
-
-    return next(action);
-};
+// const loggerMiddleware = store => next => action => {
+//     console.group(action.type);
+//     console.info('dispatching', action);
+//     console.groupEnd();
+//
+//     return next(action);
+// };
 
 const catchWrongWords = ({ dispatch }) => next => action => {
     if(action.type === ADD_ASYNC_TODO_SUCCESS) {

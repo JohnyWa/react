@@ -17,7 +17,7 @@ export const registration = userData => dispatch => {
     axios.post('/users/signup', userData)
         .then(response => {
             setToken(response.data.token)
-            dispatch(registrationSuccess(response.data))
+            dispatch(registrationSuccess(response.data.user))
         })
         .catch(error => dispatch(registrationFailure(error)))
 }

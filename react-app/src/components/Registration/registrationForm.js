@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import './style.css';
 
+const INITIAL_STATE = {
+    name: '',
+    email: '',
+    password: ''
+}
+
 class RegistrationForm extends Component{
     state = {
-        name: '',
-        email: '',
-        password: ''
+        ...INITIAL_STATE
     }
 
     onSubmit = event => {
         event.preventDefault();
 
         this.props.onSubmitHandler(this.state)
+        this.setState({...INITIAL_STATE})
     }
 
     onChangeHandler = event => {

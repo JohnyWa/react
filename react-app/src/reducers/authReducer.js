@@ -5,7 +5,6 @@ const initialProps = {
         name: null,
         email: null
     },
-    token: null,
     error: null
 }
 

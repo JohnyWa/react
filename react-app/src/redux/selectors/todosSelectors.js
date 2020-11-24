@@ -9,6 +9,12 @@ export const getPairIdTodos = createSelector(
     (todos) => todos.filter(todo => todo.id%2 === 0)
 )
 
+export const getPairIdTodosClassic = state => {
+    const todos = getTodos(state);
+
+    return todos.filter(todo => todo.id%2 === 0)
+}
+
 export const getTodoByID = createSelector(
     getTodos,
     (state, id) => id,

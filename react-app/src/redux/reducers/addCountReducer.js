@@ -8,6 +8,6 @@ const initialProps = {
 
 export const countReducer = createReducer(initialProps, {
     [addCount.type]: (state, action) => ({
-        count: initialProps.count++
+        count: state.count + 1
     })
 })

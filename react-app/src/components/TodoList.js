@@ -3,11 +3,14 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import TodoItem from "./TodoItem";
 import '../styles.css';
 import './todoList.css';
+import {connect} from "react-redux";
+import {getPairIdTodos, getPairIdTodosClassic, getTodos} from "../redux/selectors/todosSelectors";
 
-export default class extends React.Component {
+class TodoList extends React.Component {
   render() {
     const { todos } = this.props;
 
+    console.log('TODO_LIST_RENDER')
     return (
       <TransitionGroup component="ul" className="todo-list">
         {todos.map(todo => (
@@ -23,3 +26,8 @@ export default class extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  todos: getPairIdTodos(state),
+})
+
+export default connect(mapStateToProps)(TodoList)

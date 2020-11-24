@@ -1,24 +1,24 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from "./pages/Home";
-import Posts from "./pages/Posts";
 import NotFound from "./pages/NotFound";
-import Navigation from "./components/Navigation";
-import About from "./pages/About";
 import Contacts from "./pages/Contacts";
+import Login from "./pages/Login";
+import Registration from "./pages/Registration";
+import Header from "./components/Header/Header";
 
 export default class App extends React.Component{
   render() {
     return (
       <div className="App">
-        <Navigation />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/posts" component={Posts} />
-            <Route path="/contacts"  component={Contacts} />
-            <Route component={NotFound} />
-          </Switch>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/registration" exact component={Registration} />
+          <Route path="/contacts"  component={Contacts} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   }

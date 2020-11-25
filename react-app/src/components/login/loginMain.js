@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import LoginForm from "./loginForm";
+import {connect} from "react-redux";
+import {login} from "../../asyncActions/authAsyncActions";
 
 class LoginMain extends Component{
     onSubmitHandler = formData => {
-        console.log(formData);
+        this.props.login(formData);
     }
 
     render() {
@@ -13,4 +15,8 @@ class LoginMain extends Component{
     }
 }
 
-export default LoginMain;
+const mapStateToDispatch = {
+    login
+}
+
+export default connect(null, mapStateToDispatch)(LoginMain);

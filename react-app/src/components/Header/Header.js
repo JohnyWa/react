@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "./Navigation";
-import UserInfo from "./UserInfo";
+
 import './style.css';
 
 class Header extends Component{
@@ -8,7 +8,6 @@ class Header extends Component{
         return (
             <div className="header">
                 <Navigation />
-                <UserInfo />
             </div>
         )
     }

@@ -10,7 +10,6 @@ class TodoList extends React.Component {
   render() {
     const { todos } = this.props;
 
-    console.log('TODO_LIST_RENDER')
     return (
       <TransitionGroup component="ul" className="todo-list">
         {todos.map(todo => (

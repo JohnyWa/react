@@ -17,29 +17,11 @@ const Navigation = () => {
       </li>
       <li>
         <NavLink
-          to="/about"
+          to="/useCallback"
           className="menu-item"
           activeClassName="menu-item--active"
         >
-          About
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/posts"
-          className="menu-item"
-          activeClassName="menu-item--active"
-        >
-          Posts
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/contacts"
-          className="menu-item"
-          activeClassName="menu-item--active"
-        >
-          Contacts
+           UseCallback
         </NavLink>
       </li>
     </ul>
